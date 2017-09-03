@@ -20,8 +20,8 @@ public class Transceiver: SessionDelegate {
     let advertiser: Advertiser
     let browser: Browser
 
-    public init(displayName: String!) {
-        session = Session(displayName: displayName, delegate: nil)
+    public init(displayName: String!, securityIdentity: [Any]? = nil, encryptionPreference: MCEncryptionPreference = .required) {
+        session = Session(displayName: displayName, delegate: nil, securityIdentity: securityIdentity, encryptionPreference: encryptionPreference)
         advertiser = Advertiser(mcSession: session.mcSession)
         browser = Browser(mcSession: session.mcSession)
         session.delegate = self

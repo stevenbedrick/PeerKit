@@ -21,11 +21,11 @@ public class Session: NSObject, MCSessionDelegate {
     public private(set) var myPeerID: MCPeerID
     var delegate: SessionDelegate?
     public private(set) var mcSession: MCSession
-
-    public init(displayName: String, delegate: SessionDelegate? = nil) {
+    
+    public init(displayName: String, delegate: SessionDelegate? = nil, securityIdentity: [Any]? = nil, encryptionPreference: MCEncryptionPreference = .required) {
         myPeerID = MCPeerID(displayName: displayName)
         self.delegate = delegate
-        mcSession = MCSession(peer: myPeerID)
+        mcSession = MCSession(peer: myPeerID, securityIdentity: securityIdentity, encryptionPreference: encryptionPreference)
         super.init()
         mcSession.delegate = self
     }
