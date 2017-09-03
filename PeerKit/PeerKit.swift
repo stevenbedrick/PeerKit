@@ -35,7 +35,7 @@ public let myName = UIDevice.current.name
 public let myName = Host.current().localizedName ?? ""
 #endif
 
-public var transceiver = Transceiver(displayName: myName)
+public var transceiver = Transceiver(displayName: myName, securityIdentity: nil, encryptionPreference: .none) // disable encryption?
 public var session: MCSession?
 
 // MARK: Event Handling
