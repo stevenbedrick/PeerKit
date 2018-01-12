@@ -44,12 +44,20 @@ public class Transceiver: SessionDelegate {
         advertiser.startAdvertising(serviceType: serviceType, discoveryInfo: discoveryInfo)
         transceiverMode = .Advertise
     }
+    
+    func stopAdvertising() {
+        advertiser.stopAdvertising()
+    }
 
     func startBrowsing(serviceType: String) {
         browser.startBrowsing(serviceType: serviceType)
         transceiverMode = .Browse
     }
 
+    func stopBrowsing() {
+        browser.stopBrowsing()
+    }
+    
     public func connecting(myPeerID: MCPeerID, toPeer peer: MCPeerID) {
         didConnecting(myPeerID: myPeerID, peer: peer)
     }
