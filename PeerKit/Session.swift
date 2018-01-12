@@ -61,9 +61,9 @@ public class Session: NSObject, MCSessionDelegate {
         // unused
     }
 
-    public func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {
+    public func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
         if (error == nil) {
-            delegate?.finishReceivingResource(myPeerID: myPeerID, resourceName: resourceName, fromPeer: peerID, atURL: localURL)
+            delegate?.finishReceivingResource(myPeerID: myPeerID, resourceName: resourceName, fromPeer: peerID, atURL: localURL!)
         }
     }
 }
