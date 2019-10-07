@@ -14,7 +14,7 @@ public protocol SessionDelegate {
     func connected(myPeerID: MCPeerID, toPeer peer: MCPeerID)
     func disconnected(myPeerID: MCPeerID, fromPeer peer: MCPeerID)
     func receivedData(myPeerID: MCPeerID, data: Data, fromPeer peer: MCPeerID)
-    func finishReceivingResource(myPeerID: MCPeerID, resourceName: String, fromPeer peer: MCPeerID, atURL localURL: URL)
+    func finishReceivingResource(myPeerID: MCPeerID, resourceName: String, fromPeer peer: MCPeerID, atURL localURL: URL?)
 }
 
 public class Session: NSObject, MCSessionDelegate {
